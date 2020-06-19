@@ -1,0 +1,41 @@
+# Author: Jonny Langefeld
+# Docker Version: 1.13.0
+# Docker Compose Version: 1.10.1
+#
+
+version: "3"
+
+services:
+    hello-world1:
+        image: hello-world
+        container_name: hello-world1
+        ports:
+            - "81:80"
+
+    hello-world2:
+        image: hello-world
+        container_name: hello-world2
+        ports:
+            - "82:80"
+    hello-world3:
+        image: hello-world
+        container_name: hello-world3
+        ports:
+            - "83:80"
+
+    haproxy:
+        build: ./haproxy
+        container_name: haproxy
+        volumes:
+            - logging:/sidecar
+        ports:
+            - "80:80"
+
+    syslog-sidecar:
+        build: ./logging
+        container_name: logging
+        volumes:
+            - logging:/sidecar
+
+volumes:
+    logging:
