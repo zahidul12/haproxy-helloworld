@@ -1,8 +1,3 @@
-# Author: Jonny Langefeld
-# Docker Version: 1.13.0
-# Docker Compose Version: 1.10.1
-#
-
 version: "3"
 
 services:
@@ -17,12 +12,6 @@ services:
         container_name: web2
         ports:
             - "82:80"
-    web3:
-        image: hello-world
-        container_name: web3
-        ports:
-            - "83:80"
-
     haproxy:
         build: ./haproxy
         container_name: haproxy
