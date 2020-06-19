@@ -6,20 +6,20 @@
 version: "3"
 
 services:
-    hello-world1:
+    web1:
         image: hello-world
-        container_name: hello-world1
+        container_name: web1
         ports:
             - "81:80"
 
-    hello-world2:
+    web2:
         image: hello-world
-        container_name: hello-world2
+        container_name: web2
         ports:
             - "82:80"
-    hello-world3:
+    web3:
         image: hello-world
-        container_name: hello-world3
+        container_name: web3
         ports:
             - "83:80"
 
